@@ -38,3 +38,25 @@ main {
   align-items: center;
   height: 100%;
 }
+
+:root {
+      --hover-color: #128; 
+    }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+  width: 90vmin;
+  height: 90vmin;
+}
+  
+.cell {
+  transition: background-color 3s ease;
+}
+
+.cell:hover {
+  background-color: var(--hover-color) !important;
+  transition: background-color 0.05s ease;
+}
+
