@@ -10,7 +10,403 @@
   <main>
     <h1>Hello world!</h1>
     <br>
+    <div class="grid" id="grid"></div>
     <p>Howdy</p>
   </main>
+  <script>
+    const grid = document.getElementById('grid');
+    const gridSize = 25;
+
+    const topLeft = [240, 234, 170];
+    const topRight = [163, 212, 189];    
+    const bottomLeft = [71, 163, 191]; 
+    const bottomRight = [148, 101, 230]; 
+
+    function interpolateColor(c1, c2, t) {
+      return c1.map((val, i) => val + (c2[i] - val) * t);
+    }
+
+    function getBilinearColor(xRatio, yRatio) {
+      const top = interpolateColor(topLeft, topRight, xRatio);
+      const bottom = interpolateColor(bottomLeft, bottomRight, xRatio);
+      const finalColor = interpolateColor(top, bottom, yRatio);
+      return `rgb(${finalColor.map(v => Math.round(v)).join(',')})`;
+    }
+
+    for (let row = 0; row < gridSize; row++) {
+      for (let col = 0; col < gridSize; col++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+
+        const xRatio = col / (gridSize - 1);
+        const yRatio = row / (gridSize - 1);
+
+        const color = getBilinearColor(xRatio, yRatio);
+        cell.style.backgroundColor = color;
+
+        // Cells that make the cat
+        if (row === 1 && col === 5) {
+        	cell.id = 'cat1';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 1 && col === 19) {
+        	cell.id = 'cat2';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 2 && col === 4) {
+        	cell.id = 'cat3';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 2 && col === 6) {
+        	cell.id = 'cat4';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 2 && col === 18) {
+        	cell.id = 'cat5';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 2 && col === 20) {
+        	cell.id = 'cat6';
+        	cell.dataset.originalColor = color;
+        }
+		if (row === 3 && col === 4) {
+        	cell.id = 'cat7';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 3 && col === 7) {
+        	cell.id = 'cat8';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 3 && col === 17) {
+        	cell.id = 'cat9';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 3 && col === 20) {
+        	cell.id = 'cat10';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 4 && col === 3) {
+        	cell.id = 'cat11';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 4 && col === 8) {
+        	cell.id = 'cat12';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 4 && col === 16) {
+        	cell.id = 'cat13';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 4 && col === 21) {
+            cell.id = 'cat14';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 3) {
+            cell.id = 'cat15';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 9) {
+            cell.id = 'cat16';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 10) {
+            cell.id = 'cat17';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 14) {
+            cell.id = 'cat18';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 15) {
+        	cell.id = 'cat19';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 5 && col === 21) {
+        	cell.id = 'cat20';
+        	cell.dataset.originalColor = color;
+        }
+        if (row === 6 && col === 3) {
+        	cell.id = 'cat21';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 6 && col === 11) {
+        	cell.id = 'cat22';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 6 && col === 12) {
+        	cell.id = 'cat23';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 6 && col === 13) {
+        	cell.id = 'cat24';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 6 && col === 21) {
+        	cell.id = 'cat25';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 7 && col === 2) {
+        	cell.id = 'cat26';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 7 && col === 22) {
+        	cell.id = 'cat27';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 8 && col === 2) {
+        	cell.id = 'cat28';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 8 && col === 22) {
+        	cell.id = 'cat29';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 9 && col === 2) {
+        	cell.id = 'cat30';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 9 && col === 22) {
+        	cell.id = 'cat31';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 10 && col === 2) {
+        	cell.id = 'cat32';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 10 && col === 22) {
+        	cell.id = 'cat33';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 11 && col === 1) {
+        	cell.id = 'cat34';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 11 && col === 8) {
+        	cell.id = 'cat35';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 11 && col === 16) {
+        	cell.id = 'cat36';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 11 && col === 23) {
+        	cell.id = 'cat37';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 12 && col === 1) {
+        	cell.id = 'cat38';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 12 && col === 8) {
+        	cell.id = 'cat39';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 12 && col === 16) {
+        	cell.id = 'cat40';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 12 && col === 23) {
+        	cell.id = 'cat41';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 13 && col === 1) {
+        	cell.id = 'cat42';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 13 && col === 8) {
+        	cell.id = 'cat43';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 13 && col === 16) {
+        	cell.id = 'cat44';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 13 && col === 23) {
+        	cell.id = 'cat45';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 14 && col === 1) {
+        	cell.id = 'cat46';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 14 && col === 23) {
+        	cell.id = 'cat47';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 15 && col === 1) {
+        	cell.id = 'cat48';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 15 && col === 11) {
+        	cell.id = 'cat49';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 15 && col === 12) {
+        	cell.id = 'cat50';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 15 && col === 13) {
+        	cell.id = 'cat51';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 15 && col === 23) {
+        	cell.id = 'cat52';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 16 && col === 2) {
+        	cell.id = 'cat53';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 16 && col === 12) {
+        	cell.id = 'cat54';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 16 && col === 22) {
+        	cell.id = 'cat55';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 17 && col === 2) {
+        	cell.id = 'cat56';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 17 && col === 22) {
+        	cell.id = 'cat57';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 18 && col === 2) {
+        	cell.id = 'cat58';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 18 && col === 9) {
+        	cell.id = 'cat59';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 18 && col === 12) {
+        	cell.id = 'cat60';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 18 && col === 15) {
+        	cell.id = 'cat61';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 18 && col === 22) {
+        	cell.id = 'cat62';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 3) {
+        	cell.id = 'cat63';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 10) {
+        	cell.id = 'cat64';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 11) {
+        	cell.id = 'cat65';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 13) {
+        	cell.id = 'cat66';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 14) {
+        	cell.id = 'cat67';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 19 && col === 21) {
+        	cell.id = 'cat68';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 20 && col === 4) {
+        	cell.id = 'cat69';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 20 && col === 20) {
+        	cell.id = 'cat70';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 21 && col === 5) {
+        	cell.id = 'cat71';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 21 && col === 6) {
+        	cell.id = 'cat72';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 21 && col === 18) {
+        	cell.id = 'cat73';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 21 && col === 19) {
+        	cell.id = 'cat74';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 7) {
+        	cell.id = 'cat75';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 8) {
+        	cell.id = 'cat76';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 9) {
+        	cell.id = 'cat77';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 15) {
+        	cell.id = 'cat78';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 16) {
+        	cell.id = 'cat79';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 22 && col === 17) {
+        	cell.id = 'cat80';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 23 && col === 10) {
+        	cell.id = 'cat81';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 23 && col === 11) {
+        	cell.id = 'cat82';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 23 && col === 12) {
+        	cell.id = 'cat83';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 23 && col === 13) {
+        	cell.id = 'cat84';
+            cell.dataset.originalColor = color;
+        }
+        if (row === 23 && col === 14) {
+        	cell.id = 'cat85';
+            cell.dataset.originalColor = color;
+        }    
+
+        grid.appendChild(cell);
+      }
+    }
+
+    function hi() {
+      const ids = ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9', 'cat10', 'cat11', 'cat12', 'cat13', 'cat14', 'cat15', 'cat16', 'cat17', 'cat18', 'cat19', 'cat20', 'cat21', 'cat22', 'cat23', 'cat24', 'cat25', 'cat26', 'cat27', 'cat28', 'cat29', 'cat30', 'cat31', 'cat32', 'cat33', 'cat34', 'cat35', 'cat36', 'cat37', 'cat38', 'cat39', 'cat40', 'cat41', 'cat42', 'cat43', 'cat44', 'cat45', 'cat46', 'cat47', 'cat48', 'cat49', 'cat50', 'cat51', 'cat52', 'cat53', 'cat54', 'cat55', 'cat56', 'cat57', 'cat58', 'cat59', 'cat60', 'cat61', 'cat62', 'cat63', 'cat64', 'cat65', 'cat66', 'cat67', 'cat68', 'cat69', 'cat70', 'cat71', 'cat72', 'cat73', 'cat74', 'cat75', 'cat76', 'cat77', 'cat78', 'cat79', 'cat80', 'cat81', 'cat82', 'cat83', 'cat84', 'cat85'];
+
+      ids.forEach(id => {
+        const cell = document.getElementById(id);
+        if (!cell) return;
+
+        cell.style.backgroundColor = '#18A';
+
+        cell.addEventListener('mouseleave', () => {
+          const originalColor = cell.dataset.originalColor;
+          if (originalColor) {
+            cell.style.backgroundColor = originalColor;
+          }
+        }, { once: true });
+      });
+    }
+</script>
 </body>
 </html>
